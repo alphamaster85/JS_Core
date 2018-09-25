@@ -1,16 +1,8 @@
-var a = 1;
-var b = 0;
-while (a >= b) {
-    a = Number (prompt ("Введіть a", 0));
-    b = Number (prompt ("Введіть b", 1));
-    if (a >= b) {
-        alert ("a повинно бути менше b");
-    }
-}
-
-var sum = a + b;
-for (a++; a!=b; a++) {
-    sum += a;
-}
-
-alert ("Сума становить " + sum);
+var myArray = [];
+myArray[0] = 13;
+myArray[1] = "one";
+myArray[2] = true;
+myArray[3] = null;
+alert(myArray.length);
+myArray[4] = prompt("Enter anywhere", 0);
+alert(myArray[4]);

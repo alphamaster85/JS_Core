@@ -1,20 +1,10 @@
-var array = [];
-var num;
-
-for (var i=0; i<=3; i++) {
-    array[i]=prompt("Enter number " + i);
-}
-
-if (array[0]==array[1]){
-    if (array[1]==array[2]){
-        num = 3;
-    } else {
-        num = 2;
-    }
-} else if (array[1]==array[2]){
-    num = 0;
+var a;
+var b;
+a = prompt ("Введіть число А", 0);
+b = prompt ("Введіть число В", 0);
+        
+if ((a>2) && (b<=3)) { 
+    alert ("Так дійсно число " + a + " більше за 2 а число " + b + " не більше за 3");
 } else {
-    num = 1;
+    alert ("Умова a>2 И b<=3 не виконується");
 }
-
-alert("Is it number "+ array[num]);

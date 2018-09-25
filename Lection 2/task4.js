@@ -1,21 +1,9 @@
-var a = prompt ("Введіть оцінку", 5);
-
-switch (Number(a)) {
-    case 1:
-        alert ("плохо");
-        break;
-    case 2:
-        alert ("неудовлетворительно");
-        break;
-    case 3:
-        alert ("удовлетворительно");
-        break;
-    case 4:
-        alert ("хорошо");
-        break;
-    case 5:
-        alert ("отлично");
-        break;
-    default:
-        alert ("ошибка");
+var a = prompt ("Введіть число А", 0);
+var b = prompt ("Введіть число В", 0);
+var c = prompt ("Введіть число C", 0);
+        
+if ((a<b) && (b<c)) { 
+    alert ("Так дійсно число " + a + " менше за число " + b + " а число " + b + " менше за число " + c);
+} else {
+    alert ("Умова a<b<c не виконується");
 }
