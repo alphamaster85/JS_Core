@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+         <title>Навигация в DOM</title>
+         <meta charset="utf-8" />
+    </head>
+
+    <body>
+         <div>Пользователи:</div>
+
+          <ul>
+            <li>Маша</li>
+            <li>Вовочка</li>
+          </ul>
+
+          <!-- комментарий -->
+
+          <script>
+
+            var Head = document.documentElement.children[0];
+            console.log (Head);
+
+            var Ul = document.body.children[1];
+            console.log (Ul);
+
+            var Li = Ul.children[1];
+            console.log (Li);
+
+          </script>
+
+   </body>
+
+</html>

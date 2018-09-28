@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Навигация в DOM</title>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <table>
+      <caption>Таблица</caption>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+    </table>
+
+    <script>
+      var counter = 0;
+      var tab=document.body.children[0].children[1];
+      for (var i=0; i<tab.childElementCount; i++) {
+        if (tab.children[0].tagName == "TR") {
+          counter++;
+        } 
+      }
+      console.log("rows = ", counter);
+
+      var cap = document.body.children[0].children[0];
+      console.log("caption = ", cap);
+
+      var col1=document.body.children[0].children[1].children[0].children[0];
+      var col2=document.body.children[0].children[1].children[1].children[2];
+      console.log("1 rows 1 colum = ", col1);
+      console.log("2 rows 3 colum = ", col2);
+    </script>
+
+  </body>
+</html>
