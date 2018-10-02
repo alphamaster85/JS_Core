@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Калькулятор Lection 5</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <input id="min" placeholder="введіть перше ціле число">
+        <input id="max" placeholder="введіть друге ціле число"><br>
+        <button id="readNumbers">READ</button><br>
+        <input id="minIn">
+        <input id="maxIn">
+        <select id="opSelect">
+            <option value="value1">додати</option> 
+            <option value="value2">відняти</option>
+            <option value="value3">помножити</option>
+            <option value="value4">розділити</option>
+        </select>
+        
+        <script>
+            var readButton = document.getElementById("readNumbers");
+            readButton.onclick = function () {
+                document.getElementById("minIn").value=random(document.body.children[0].value, document.body.children[1].value);
+                document.getElementById("maxIn").value=random(document.body.children[0].value, document.body.children[1].value);
+
+                var selectOperation = document.getElementById("opSelect").options[document.getElementById("opSelect").selectedIndex].value;
+                console.log(selectOperation);
+
+                var result = null;
+                switch (selectOperation){
+                    case "value1": {
+                        result = Number(document.getElementById("minIn").value) + Number(document.getElementById("maxIn").value);
+                        break;
+                    }
+                    case "value2": {
+                        result = document.getElementById("minIn").value - document.getElementById("maxIn").value;
+                        break;
+                    }
+                    case "value3": {
+                        result = document.getElementById("minIn").value * document.getElementById("maxIn").value;
+                        break;
+                    }
+                    case "value4": {
+                        result = document.getElementById("minIn").value / document.getElementById("maxIn").value;
+                    } 
+                }
+                console.log(result);
+            }
+
+            function random(min, max){
+                return Math.floor(Math.random() * (max - min) + +min);
+            }     
+        </script>
+     </body>
+</html>
