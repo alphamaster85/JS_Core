@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Свойства узлов</title>
-      <meta charset="utf-8" />
-   </head>
+  <head>
+    <title>Свойства узлов</title>
+    <meta charset="utf-8" />
+  </head>
 
-   <body>
-      <div><b>Привет мир!</b></div>
-      <div><i>Привет мир!</i></div>
-
-      <script>
-        var div1 = document.body.children[0].outerHTML;
-        var div2 = document.body.children[1].outerHTML;
-        
-        document.body.children[0].outerHTML = div2;
-        document.body.children[1].outerHTML = div1;
-
-        console.log ("1st = ", document.body.children[0].innerHTML);
-        console.log ("2nd = ", document.body.children[1].innerHTML);
-
-        console.log ("div1 = ", div1);
-        console.log ("div2 = ", div2);
-      </script>
-   </body>
+  <body>
+    <div>Блок текста №1</div>
+    <p>Абзац №1</p>
+    <p>Абзац №2</p>
+    <div>Блок текста №2</div>
+    <p>Абзац №3</p>
+    
+    <script>
+      var allElements = document.body.children;
+      var pElements = [];
+      var j=0;
+      for (var i=0; i<allElements.length; i++) {
+        if (allElements[i].tagName == "P") {
+          pElements[j] = allElements[i].tagName;
+          console.log (pElements[j] + " " + j);
+          j++;
+        }
+      }
+      alert(pElements.length); // Должно вывести 3
+    </script>
+  </body>
 </html>

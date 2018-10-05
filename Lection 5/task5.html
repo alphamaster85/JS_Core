@@ -6,13 +6,21 @@
    </head>
 
    <body>
-      Текстовый узел №1<br />
-      Текстовый узел №2
-      
+      <div><b>Привет мир!</b></div>
+      <div><i>Привет мир!</i></div>
+
       <script>
-        alert(document.body.childNodes[0].nodeValue); 
-        alert(document.body.childNodes[1].nodeName); 
-        alert(document.body.childNodes[2].nodeValue);
+        var div1 = document.body.children[0].outerHTML;
+        var div2 = document.body.children[1].outerHTML;
+        
+        document.body.children[0].outerHTML = div2;
+        document.body.children[1].outerHTML = div1;
+
+        console.log ("1st = ", document.body.children[0].innerHTML);
+        console.log ("2nd = ", document.body.children[1].innerHTML);
+
+        console.log ("div1 = ", div1);
+        console.log ("div2 = ", div2);
       </script>
    </body>
 </html>
