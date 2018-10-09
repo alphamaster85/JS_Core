@@ -35,17 +35,28 @@
       </form>
 
       <script>
-        var allElementsTable1 = document.body.children[2].children[0].children[0].children[1];
-        var labelElements = [];
-        var j=0;
-        for (var i=0; i<allElementsTable1.length; i++) {
-          if (allElementsTable1[i].tagName == "LABEL") {
-            labelElements[j] = allElementsTable1[i];
-            console.log (allElementsTable1[j] + " " + j);
-            j++;
-          }
-        }
-        console.log (allElementsTable1.length);
+        var f2 = document.forms[1];
+        var allLabels = f2.getElementsByTagName("label");
+        console.log("1: ", allLabels.length);
+
+        var age = f2.children[0].children[0].children[0].children[0];
+        console.log("2: ", age.innerHTML);
+
+        console.log("3: ", f2);
+
+        var f1 = document.getElementsByName("search");
+        console.log("4: ", f1[0]);
+
+        //var inpt = document.children[0].getElementsByName("search")[0];
+        //console.log("5: ", inpt[0]);
+        console.log("5: ", f1[1]);
+
+        var info1 = document.getElementsByName("info[0]");
+        console.log("6: ", info1[0]);
+
+        // var f = document.forms["search-person"];
+        // var info2 = f.children[0];
+        // console.log("7: ", info2[0]);
       </script>
    </body>
 </html>

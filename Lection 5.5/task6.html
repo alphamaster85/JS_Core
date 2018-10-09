@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>События</title>
+      <meta charset="utf-8" />
+   </head>
+
+   <body>
+      <p id="color">Текст</p>
+      <button>Красный</button>
+      <button>Синий</button>
+      <button>Сброс</button>
+
+      <script>
+        document.body.children[1].onclick = function() {
+          document.body.children[0].style.color = "#ff6c36";
+        }
+        document.body.children[2].onclick = function() {
+          document.body.children[0].style.color = "#0000ff";
+        }
+        document.body.children[3].onclick = function() {
+          document.body.children[0].style.color = "";
+        }
+      </script>
+   </body>
+</html>
