@@ -1,10 +1,9 @@
 function mul(...param) {
-    let result = 0;
+    let result = 1;
     for (let i=0; i < param.length; i++) {
-        param[i] = +param[i];
-        if (param[i] != isNaN) {
-            result += param[i];
-            console.log(result);
+        if (!isNaN(param[i])) {
+            result *= param[i];
+            //console.log(result);
         }
     }
     return (result);

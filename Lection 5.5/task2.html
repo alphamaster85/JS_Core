@@ -47,16 +47,27 @@
         var f1 = document.getElementsByName("search");
         console.log("4: ", f1[0]);
 
-        //var inpt = document.children[0].getElementsByName("search")[0];
-        //console.log("5: ", inpt[0]);
+        var forma1 = document.forms["search"];
+        for (let i = 0; i < forma1.length; i++) {
+          console.log("iter[", i+1, "]:", forma1[i])
+          if (forma1[i].getAttribute("name") == "search") {
+            var inpt = forma1[i];
+          }
+        }
+        console.log("5: ", inpt);
         console.log("5: ", f1[1]);
 
         var info1 = document.getElementsByName("info[0]");
         console.log("6: ", info1[0]);
 
-        // var f = document.forms["search-person"];
-        // var info2 = f.children[0];
-        // console.log("7: ", info2[0]);
+        var forma2 = document.forms["search-person"];
+        for (let i = 0; i < forma2.length; i++) {
+          console.log("iter[", i+1, "]:", forma2[i])
+          if (forma2[i].getAttribute("name") == "info[0]") {
+            var info2 = forma2[i];
+          }
+        }
+        console.log("7: ", info2);
       </script>
    </body>
 </html>
