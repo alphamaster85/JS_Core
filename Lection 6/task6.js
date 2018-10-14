@@ -1,10 +1,13 @@
 let server = {
     data: 0,
     convertToString: function (callback) {
-        callback((function () {
-            return this.data + "";
-        }).bind(this));
+        callback(() => this.data + "");
     }
+    // convertToString: function (callback) {
+    //     callback((function () {
+    //         return this.data + "";
+    //     }).bind(this));
+    // }
 };
  
 let client = {
@@ -16,10 +19,13 @@ let client = {
     },
  
     notification: function () {
-        return (function (callback) {
-            this.result = callback();
-        }).bind(this);
+        return ((callback) => this.result = callback());
     }
+    // notification: function () {
+    //     return (function (callback) {
+    //         this.result = callback();
+    //     }).bind(this);
+    // }
 };
  
 client.calc(123);
