@@ -2,25 +2,24 @@ var op;
 var minIn;
 var maxIn;
 var res;
-var counter = [0, 0];
 var smileImg = document.createElement("img");
     smileImg.style.width = "100px";
     smileImg.style.height = "100px";
 
 var inputMin = document.getElementById("min");
-inputMin.onchange = function () {
+inputMin.keyup = function () {
     if (isNaN(document.getElementById("min").value)) {        
         alert("inputMin - не число");
-        document.getElementById("min").preventDefault();
+        //document.getElementById("min").preventDefault();
     }
 }
 
-var inputMax = document.getElementById("max");
-inputMax.onchange = function () {
-    if (isNaN(document.getElementById("max").value)) {
-        alert("inputMax - не число");
-    }
-}
+// var inputMax = document.getElementById("max");
+// inputMax.onchange = function () {
+//     if (isNaN(document.getElementById("max").value)) {
+//         alert("inputMax - не число");
+//     }
+// }
 
 var prognosRes = document.getElementById("prognosRes");
 prognosRes.onchange = function () {
@@ -44,27 +43,26 @@ checkButton.onclick = function () {
     document.getElementById("result").value = res;
     console.log(res);
     var smile = document.getElementById("smile");
+    let res_true, res_not_true;
     
     if (document.getElementById("prognosRes").value == res) {
         var congrats = "ВІРНО";
         smileImg.setAttribute("src", "smile.jpg");
 		smile.appendChild(smileImg);
-        counter[0]++;
-        // sessionStorage.setItem('counterV', 1);
-        // console.log(sessionStorage.getItem("counterV").value);
+        setStorage("res_true", "session");
+        setStorage("res_true", "local");
     } else {
         var congrats = "HE ВІРНО";
         smileImg.setAttribute("src", "sad.jpg");
 		smile.appendChild(smileImg);
-        counter[1]++;
-        // sessionStorage.setItem("counterN", window.sessionStorage.getItem("counterN").value+1);
+        setStorage("res_not_true", "session");
+        setStorage("res_not_true", "local");
     }
 
     document.getElementById("resCongrats").value = congrats;
     console.log(congrats);
-    console.log(counter[0] + " --- " + counter[1]);
-    // console.log("Вірних відповідей за сесію: ", sessionStorage.getItem("counterV").value);
-    // console.log("Невірних відповідей за сесію: ", window.sessionStorage.getItem("counterN").value);
+    //console.log("Вірних відповідей за сесію: ", sessionStorage.getItem("res_true").value);
+    //console.log("Невірних відповідей за сесію: ", sessionStorage.getItem("res_not_true").value);
 }
 
 function operation(x, y, op) {
@@ -87,6 +85,33 @@ function operation(x, y, op) {
         } 
     }
     return result;
+}
+
+function setStorage (counter, typeStorage) {
+    console.log("function>setStorage = ", counter);
+    switch (typeStorage) {
+        case "session" : {
+            console.log("switch>session = ", typeStorage);
+            if (sessionStorage.getItem(counter) != undefined) {
+                console.log("if>getItem = ", Number(sessionStorage.getItem(counter)));
+                sessionStorage.setItem(counter, Number(sessionStorage.getItem(counter)) + 1);
+            } else {
+                console.log("else>getItem = ", Number(sessionStorage.getItem(counter)));
+                sessionStorage.setItem(counter, 1);
+            }
+        }
+        break;
+        case "local" : {
+            console.log("switch>local = ", typeStorage);
+            if (localStorage.getItem(counter) != undefined) {
+                localStorage.setItem(counter, Number(localStorage.getItem(counter)) + 1);
+            } else {
+                localStorage.setItem(counter, 1);
+            }
+        }
+        break;
+    }
+   
 }
 
 function random(min, max) {
