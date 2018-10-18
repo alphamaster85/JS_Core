@@ -61,8 +61,8 @@ checkButton.onclick = function () {
 
     document.getElementById("resCongrats").value = congrats;
     console.log(congrats);
-    //console.log("Вірних відповідей за сесію: ", sessionStorage.getItem("res_true").value);
-    //console.log("Невірних відповідей за сесію: ", sessionStorage.getItem("res_not_true").value);
+    console.log("Вірних відповідей за сесію: ", sessionStorage.getItem("res_true"));
+    console.log("Невірних відповідей за сесію: ", sessionStorage.getItem("res_not_true"));
 }
 
 function operation(x, y, op) {
@@ -87,22 +87,21 @@ function operation(x, y, op) {
     return result;
 }
 
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min) + +min);
+}
+
 function setStorage (counter, typeStorage) {
-    console.log("function>setStorage = ", counter);
     switch (typeStorage) {
         case "session" : {
-            console.log("switch>session = ", typeStorage);
             if (sessionStorage.getItem(counter) != undefined) {
-                console.log("if>getItem = ", Number(sessionStorage.getItem(counter)));
                 sessionStorage.setItem(counter, Number(sessionStorage.getItem(counter)) + 1);
             } else {
-                console.log("else>getItem = ", Number(sessionStorage.getItem(counter)));
                 sessionStorage.setItem(counter, 1);
             }
         }
         break;
         case "local" : {
-            console.log("switch>local = ", typeStorage);
             if (localStorage.getItem(counter) != undefined) {
                 localStorage.setItem(counter, Number(localStorage.getItem(counter)) + 1);
             } else {
@@ -110,10 +109,5 @@ function setStorage (counter, typeStorage) {
             }
         }
         break;
-    }
-   
-}
-
-function random(min, max) {
-    return Math.floor(Math.random() * (max - min) + +min);
+    }   
 }

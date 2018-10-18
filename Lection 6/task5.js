@@ -2,7 +2,7 @@ let obj = {
     name: "obj",
     print: function () {
         f = () => console.log(obj.name);
-        f();
+        return f;
     }
 };
  
@@ -12,4 +12,4 @@ function multiCaller(func, count) {
     }
 }
  
-multiCaller(obj.print, 3);  // "obj", 3 раза
+multiCaller(obj.print(), 3);  // "obj", 3 раза
