@@ -2,17 +2,19 @@ var TV = {
     currentChannel : 1,
     nextChannel() {
         this.currentChannel++;
-        return this.currentChannel;
     },
     previousChannel() {
         this.currentChannel--;
-        return this.currentChannel;
     },
     setChannel(number) {
         this.currentChannel = number;    
         return this.currentChannel;
+    },
+    printChannel() {
+        console.log("channel", this.currentChannel);
     }
 }
+console.log(TV);
 
 var MP3 = {
     currentSong : "song.mp3",
