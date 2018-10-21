@@ -7,8 +7,7 @@ var TV = {
         this.currentChannel--;
     },
     setChannel(number) {
-        this.currentChannel = number;    
-        return this.currentChannel;
+        this.currentChannel = number;
     },
     printChannel() {
         console.log("channel", this.currentChannel);
@@ -17,22 +16,19 @@ var TV = {
 console.log(TV);
 
 var MP3 = {
-    currentSong : "song.mp3",
-    nextSong() {
-        this.currentSong++;
-        return this.currentSong;
+    playList : [song1, song2, song3],
+    playSong : playList[i],
+    nextButton() {
+        this.playSong[i++];
     },
-    previousSong() {
-        this.currentSong--;
-        return this.currentSong;
+    prevButton() {
+        this.playSong[i--];
     },
-    playSong(song) {
-        this.currentSong = "song";    
-        return this.currentSong;
+    playButton(song) {
+        this.playSong[song];
     },
-    stopSong() {
-        this.currentSong = "";
-        return this.currentSong;
+    stopButton() {
+        this.playSong[i] = NULL;
     }
 }
 

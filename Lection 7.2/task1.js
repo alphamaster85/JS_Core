@@ -1,24 +1,30 @@
 let globalSym = Symbol.for("isEmpty");
+
 Object.__proto__ = {
-    globalSym() {
-        if ([Symbol.for("isEmpty")]) {
-            return false;
-        } else {
-            return true;
+        globalSym (Obj) {
+                let counter = 0;
+                for (let meth of Obj) {
+                        counter++;
+                }
+                if (counter == 0) {
+                        return true;
+                } else {
+                        return false;
+                }
         }
-    }
 }
 
 let emptyObj = {
-    [globalSym]: "isEmpty",
+        [globalSym] () {
+                super.globalSym(this);
+        }
 };
-
-console.log(Symbol.for("isEmpty"));
-
-console.log([Symbol.for("isEmpty")]); // true
 console.log(emptyObj[Symbol.for("isEmpty")]()); // true
 
 let user = {
-   name: "Tom"
+        name: "Tom",
+        [globalSym] () {
+                super.globalSym(this);
+        }
 };
 console.log(user[Symbol.for("isEmpty")]()); // false

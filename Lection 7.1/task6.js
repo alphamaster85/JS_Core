@@ -48,17 +48,3 @@ let lStatic1 = c.__proto__.circleLengthsStatic(rStatic);
 alert("Довжиа круга з радіусом ", rStatic, " становить ", lStatic1)
 let lStatic2 = Сircle.circleLengthsStatic(rStatic);
 alert("Довжиа круга з радіусом ", rStatic, " становить ", lStatic2)
-
-
-class Cube extends Square {
-    constructor (size) {
-        super (size);
-    };
-    // perimeter () {
-    //     return this.square_size*12;
-    // };
-    perimeter () {
-        let p = super.perimeter();
-        return p*3;
-    };
-}
