@@ -19,7 +19,8 @@ class Сircle {
     };
 
     circleLengths () {
-        return 2 * PI * this.radius;
+        let circleLength = 2 * PI * this.radius;
+        return circleLength;
     };
 
     static circleLengthsStatic (r) {

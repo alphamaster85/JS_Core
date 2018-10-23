@@ -5,9 +5,10 @@ var mapBuilder = function (keysArray, valuesArrays) {
             mapArray.set(keysArray[i], valuesArrays[i]);
         }
         return mapArray;
-    } else {
-        return "масиви не однакового розміру";
-    }
+    } //else {
+        // let srt = "масиви не однакового розміру";
+        //return null;
+    //}
 }
 
 let keys = [1, 2, 3, 4];

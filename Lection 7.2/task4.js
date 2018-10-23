@@ -9,8 +9,7 @@ var sortDistinct = function (array) {
     let arraySet = [];
     let i=0;
     for (let arr of arrSet) {
-        arraySet[i] = arr;
-        i++;       
+        arraySet.push(arr);
     }
 
     return arraySet;

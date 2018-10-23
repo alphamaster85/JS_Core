@@ -1,17 +1,23 @@
-let globalSym = Symbol.for("isEmpty");
+let isEmpty = Symbol.for("isEmpty");
 
-Object.__proto__ = {
-        globalSym (Obj) {
-                let counter = 0;
-                for (let meth of Obj) {
-                        counter++;
-                }
-                if (counter == 0) {
-                        return true;
-                } else {
-                        return false;
-                }
+Object.prototype[isEmpty] = {
+        for (key in this) {
+                return false;
+        return true;
         }
+        
+
+        // globalSym (Obj) {
+        //         let counter = 0;
+        //         for (let meth of Obj) {
+        //                 counter++;
+        //         }
+        //         if (counter == 0) {
+        //                 return true;
+        //         } else {
+        //                 return false;
+        //         }
+        // }
 }
 
 let emptyObj = {
