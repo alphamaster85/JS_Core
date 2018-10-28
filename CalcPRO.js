@@ -1,4 +1,3 @@
-var op;
 var minIn;
 var maxIn;
 var res;
@@ -65,6 +64,7 @@ checkButton.onclick = function () {
     console.log("Невірних відповідей за сесію: ", sessionStorage.getItem("res_not_true"));
 }
 
+var op;
 function operation(x, y, op) {
     let result = null;
     switch (op){
