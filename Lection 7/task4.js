@@ -62,9 +62,8 @@ class Сircle extends GeometricFigure {
     };
 }
 
-let circle = new Сircle;
-let rectangle = new Rectangle;
-
+let circle = new Сircle();
+let rectangle = new Rectangle();
 console.log("circle:" + circle.info());
 console.log("rectangle:" + rectangle.info());
 

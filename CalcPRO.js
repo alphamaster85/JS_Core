@@ -5,20 +5,35 @@ var smileImg = document.createElement("img");
     smileImg.style.width = "100px";
     smileImg.style.height = "100px";
 
-var inputMin = document.getElementById("min");
-inputMin.keyup = function () {
-    if (isNaN(document.getElementById("min").value)) {        
-        alert("inputMin - не число");
-        //document.getElementById("min").preventDefault();
-    }
-}
-
-// var inputMax = document.getElementById("max");
-// inputMax.onchange = function () {
-//     if (isNaN(document.getElementById("max").value)) {
-//         alert("inputMax - не число");
+// var inputMin = $("min").val();
+// $("min").addEventListener("keyup", checkNumber(inputMin));
+// inputMin.onchange = function () {
+//     if (isNaN(document.getElementById("min").value)) {        
+//         alert("inputMin - не число");    
+//         document.getElementById("min").preventDefault();
 //     }
 // }
+
+function checkNumber(event) {
+    event.preventDefault();
+    let inputMin = $("#min").val();
+    console.log("1111 ", inputMin);
+
+    // // $("#min").addEventListener("keyup", checkNumber(inputMin));
+    // if (!isNaN(document.getElementById("min").value) && inputNumber>0) {        
+    //     alert("inputMin - число");
+    // } else {
+    //     alert("inputMin - не число");
+    // }
+    // return true;
+}
+
+var inputMax = document.getElementById("max");
+inputMax.onchange = function () {
+    // if (isNaN(document.getElementById("max").value)) {
+    //     alert("inputMax - не число");
+    // }
+}
 
 var prognosRes = document.getElementById("prognosRes");
 prognosRes.onchange = function () {
