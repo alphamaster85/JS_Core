@@ -5,20 +5,20 @@ var smileImg = document.createElement("img");
     smileImg.style.width = "100px";
     smileImg.style.height = "100px";
 
-var inputMin = document.getElementById("min");
-inputMin.keyup = function () {
+var inputMin = $('#min');
+inputMin.onchange = function () {
     if (isNaN(document.getElementById("min").value)) {        
         alert("inputMin - не число");
-        //document.getElementById("min").preventDefault();
+        // document.getElementById("min").preventDefault();
     }
 }
 
-// var inputMax = document.getElementById("max");
-// inputMax.onchange = function () {
-//     if (isNaN(document.getElementById("max").value)) {
-//         alert("inputMax - не число");
-//     }
-// }
+var inputMax = document.getElementById("max");
+inputMax.onchange = function () {
+    if (isNaN(document.getElementById("max").value)) {
+        alert("inputMax - не число");
+    }
+}
 
 var prognosRes = document.getElementById("prognosRes");
 prognosRes.onchange = function () {
