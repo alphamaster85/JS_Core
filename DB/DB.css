@@ -1,0 +1,9 @@
+.typeError {
+    color:red;
+    font-weight: bolder;
+}
+
+.typeOK {
+    color:green;
+    font-weight: bolder;
+}
