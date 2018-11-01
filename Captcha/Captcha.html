@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Перевітка типу CAPTCHA</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="Captcha.css">
+       
+    </head>
+
+    <body>
+        <form id="form" onsubmit="checkForm(event); return false;">
+            <input id="inputPlain" placeholder="введіть слово"><br>
+            <input id="inputReverse" placeholder="введіть реверс"><br>
+            <button id="chekButton">ПЕРЕВІРКА</button><br>
+            <div id="result"></div>
+        </form>
+
+        <script src = "jQuery.js"></script>
+        <script src = "Captcha.js"></script>        
+     </body>
+</html>

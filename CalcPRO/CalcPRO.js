@@ -5,15 +5,26 @@ var smileImg = document.createElement("img");
     smileImg.style.width = "100px";
     smileImg.style.height = "100px";
 
+
 function checkForm1(event) {
     event.preventDefault();
     let inputMin = $("#inputMin").val();
     let inputMax = $("#inputMax").val();
     checkInput(inputMin);
     checkInput(inputMax);
-
     return true;
 }
+
+                        $(document).ready($("#readNumbers").on("click", function(event) {
+                            event.preventDefault();
+                            // let someMinValue = $("#someMinValue");
+                            // var someMaxValue = document.getElementById("someMaxValue");
+                            rand1 = randomNumbers(minVal,maxVal);
+                            rand2 = randomNumbers(minVal,maxVal);
+                            $("#someMinValue").html(rand1);
+                            $("#someMaxValue").html(rand2);
+                        }));
+
 
 function checkInput (input) {
     if (!isNaN(input) && input>0) return true
@@ -27,14 +38,14 @@ prognosRes.onchange = function () {
     }
 }
 
-var readButton = document.getElementById("readNumbers");
-readButton.onclick = function () {
-    minIn = getRandom($("#inputMin").val(), $("#inputMax").val());
-    maxIn = getRandom($("#inputMin").val(), $("#inputMax").val());
-    op = document.getElementById("opSelect").options[document.getElementById("opSelect").selectedIndex].value;
+        var readButton = document.getElementById("readNumbers");
+        readButton.onclick = function () {
+            minIn = getRandom($("#inputMin").val(), $("#inputMax").val());
+            maxIn = getRandom($("#inputMin").val(), $("#inputMax").val());
+            op = document.getElementById("opSelect").options[document.getElementById("opSelect").selectedIndex].value;
 
-    $("#mathOperation").val() = minIn + " " + op + " " + maxIn + " = ?";
-}
+            $("#mathOperation").val() = minIn + " " + op + " " + maxIn + " = ?";
+        }
 
 var checkButton = document.getElementById("checkResult");
 checkButton.onclick = function () {
