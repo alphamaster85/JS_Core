@@ -18,10 +18,7 @@ function createPromiseRandom(min, max, delay) {
         });
 }
 
-let p1 = createPromiseRandom(1, 100, 2000);
-p1.then(function (result) {console.log(result)}, function (error) {console.log(error)});
-let p2 = createPromiseRandom(1000, 100, 3000);
-p2.then(function (result) {console.log(result)}, function (error) {console.log(error)});
-
-// Через две секунды, на экране должно появится случайной число от 1 до 100.
-// Через три секунды, на экране должна появится информация об ошибке.
+// let p1 = createPromiseRandom(1, 100, 2000);
+// p1.then(function (result) {console.log(result)}, function (error) {console.log(error)});
+// let p2 = createPromiseRandom(1000, 100, 3000);
+// p2.then(function (result) {console.log(result)}, function (error) {console.log(error)});

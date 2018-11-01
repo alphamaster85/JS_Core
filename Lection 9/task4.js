@@ -18,14 +18,19 @@ function* generateFibonacci(type) {
             a = b;
             b = c;
             index++;
-            if (input == "string") input = yield c+"";
+            if (input == "string") input = yield ""+c;
                 else input = yield c;
     };
 };
 
 let gen = generateFibonacci();
-console.log(gen.next().value); // 1
-console.log(gen.next("string").value); // "1"
-console.log(gen.next("number").value); // 2
-console.log(gen.next().value); // 3
-console.log(gen.next("string").value); // "5"
+let a = gen.next().value;
+console.log(a, typeof(a)); // 1
+a = gen.next("string").value;
+console.log(a, typeof(a)); // "1"
+a = gen.next("number").value;
+console.log(a, typeof(a)); // 2
+a = gen.next().value;
+console.log(a, typeof(a)); // 3
+a = gen.next("string").value;
+console.log(a, typeof(a)); // "5"

@@ -6,23 +6,29 @@
     </head>
 
     <body>
-        <input id="min" placeholder="введіть перше ціле число">
-        <input id="max" placeholder="введіть друге ціле число"><br>
-        Виберіть математичну операцію: 
-        <select id="opSelect">
-            <option value="+">довання</option> 
-            <option value="-">віднімання</option>
-            <option value="*">множення</option>
-            <option value="/">ділення</option>
-        </select><br>
-        <button id="readNumbers">READ</button><br>
-        <input id="expression"><br>
-        <input id="prognosRes" placeholder="введіть прогнозований результат"><br>
-        <input id="result" placeholder="вірний результат становить"><br>
-        <button id="checkResult">CHECK</button><br>
-        <input id=resCongrats><br>
-        <div id="smile"></div>
-        
+        <form id="stage1" onsubmit="checkForm1(event); return false;">
+            <input id="inputMin" placeholder="введіть перше ціле менше число" style="width:15%">
+            <input id="inputMax" placeholder="введіть друге ціле більше число"style="width:15%"><br><br>
+            Виберіть математичну операцію: 
+            <select id="opSelect" style="width:10%">
+                <option value="+">довання</option> 
+                <option value="-">віднімання</option>
+                <option value="*">множення</option>
+                <option value="/">ділення</option>
+            </select><br><br>
+            <button id="readNumbers">READ</button><br>
+        </form>
+        <hr>
+        <form id="stage2" onsubmit="checkNumber2()" >
+            <input id="mathOperation"><br>
+            <input id="prognosRes" placeholder="введіть прогнозований результат"><br>
+            <button id="checkResult">CHECK</button><br>
+            <div id="result" placeholder="вірний результат становить"><br>
+            <div id=resCongrats><br>
+            <div id="smile"></div>
+        </form>
+
+        <script src = "jQuery.js"></script>
         <script src = "CalcPRO.js"></script>
         <script src = "jQuery.js"></script>
      </body>

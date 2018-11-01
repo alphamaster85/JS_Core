@@ -5,19 +5,19 @@ var smileImg = document.createElement("img");
     smileImg.style.width = "100px";
     smileImg.style.height = "100px";
 
-var inputMin = $('#min');
-inputMin.onchange = function () {
-    if (isNaN(document.getElementById("min").value)) {        
-        alert("inputMin - не число");
-        // document.getElementById("min").preventDefault();
-    }
+function checkForm1(event) {
+    event.preventDefault();
+    let inputMin = $("#inputMin").val();
+    let inputMax = $("#inputMax").val();
+    checkInput(inputMin);
+    checkInput(inputMax);
+
+    return true;
 }
 
-var inputMax = document.getElementById("max");
-inputMax.onchange = function () {
-    if (isNaN(document.getElementById("max").value)) {
-        alert("inputMax - не число");
-    }
+function checkInput (input) {
+    if (!isNaN(input) && input>0) return true
+        else return false;
 }
 
 var prognosRes = document.getElementById("prognosRes");
@@ -29,11 +29,11 @@ prognosRes.onchange = function () {
 
 var readButton = document.getElementById("readNumbers");
 readButton.onclick = function () {
-    minIn = random(document.getElementById("min").value, document.getElementById("max").value);
-    maxIn = random(document.getElementById("min").value, document.getElementById("max").value);
+    minIn = getRandom($("#inputMin").val(), $("#inputMax").val());
+    maxIn = getRandom($("#inputMin").val(), $("#inputMax").val());
     op = document.getElementById("opSelect").options[document.getElementById("opSelect").selectedIndex].value;
 
-    document.getElementById("expression").value = minIn + " " + op + " " + maxIn + " = ?";
+    $("#mathOperation").val() = minIn + " " + op + " " + maxIn + " = ?";
 }
 
 var checkButton = document.getElementById("checkResult");
@@ -62,12 +62,14 @@ checkButton.onclick = function () {
     console.log(congrats);
     console.log("Вірних відповідей за сесію: ", sessionStorage.getItem("res_true"));
     console.log("Невірних відповідей за сесію: ", sessionStorage.getItem("res_not_true"));
+    console.log("Вірних відповідей всього: ", localStorage.getItem("res_true"));
+    console.log("Невірних відповідей всього: ", localStorage.getItem("res_not_true"));
 }
 
 var op;
 function operation(x, y, op) {
     let result = null;
-    switch (op){
+    switch (op) {
         case "+": {
             result = +x + +y;
             break;
@@ -87,7 +89,7 @@ function operation(x, y, op) {
     return result;
 }
 
-function random(min, max) {
+function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min) + +min);
 }
 
