@@ -52,19 +52,24 @@ checkButton.onclick = function () {
     res = operation(minIn, maxIn, op);
     document.getElementById("result").value = res;
     console.log(res);
-    var smile = document.getElementById("smile");
     let res_true, res_not_true;
     
     if (document.getElementById("prognosRes").value == res) {
         var congrats = "ВІРНО";
-        smileImg.setAttribute("src", "smile.jpg");
-		smile.appendChild(smileImg);
+        // smileImg.setAttribute("src", "smile.jpg");
+        // smile.appendChild(smileImg);
+        $("#smile").removeClass("imgnone");
+        $("#smile").removeClass("sad");
+        $("#result").addClass("smile");
         setStorage("res_true", "session");
         setStorage("res_true", "local");
     } else {
         var congrats = "HE ВІРНО";
-        smileImg.setAttribute("src", "sad.jpg");
-		smile.appendChild(smileImg);
+        // smileImg.setAttribute("src", "sad.jpg");
+        // smile.appendChild(smileImg);
+        $("#smile").removeClass("imgnone");
+        $("#smile").removeClass("smile");
+        $("#result").addClass("sad");
         setStorage("res_not_true", "session");
         setStorage("res_not_true", "local");
     }

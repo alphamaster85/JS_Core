@@ -1,3 +1,9 @@
+body {
+	background: url('background.jpg');
+    background-size: cover;
+    text-align: center;
+}
+
 .typeError {
     color:red;
     font-weight: bolder;
@@ -7,3 +13,8 @@
     color:green;
     font-weight: bolder;
 }
+
+.center {
+    display: block;
+    margin: 0 auto;
+  }

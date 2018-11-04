@@ -1,0 +1,32 @@
+body {
+	background: url('background.jpg');
+    background-size: cover;
+    text-align: center;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+}
+
+.imgnone {
+    width: "100px";
+    height: "100px";
+    display: block;
+    margin: 0 auto;
+}
+
+.smile {
+    width: "100px";
+    height: "100px";
+    display: block;
+    margin: 0 auto;
+    border-image-source: 'smile.jpg'
+}
+.sad {
+    width: "100px";
+    height: "100px";
+    display: block;
+    margin: 0 auto;
+    border-image-source: 'sad.jpg'
+}

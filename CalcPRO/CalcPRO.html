@@ -3,12 +3,14 @@
     <head>
         <title>Калькулятор Lection 5</title>
         <meta charset="utf-8" />
+        <link rel="stylesheet" href="CalcPRO.css">
     </head>
 
     <body>
+        <br><br><br><br>
         <form id="stage1" onsubmit="checkForm1(event); return false;">
             <input id="inputMin" placeholder="введіть перше ціле менше число" style="width:15%">
-            <input id="inputMax" placeholder="введіть друге ціле більше число"style="width:15%"><br><br>
+            <input id="inputMax" placeholder="введіть друге ціле більше число" style="width:15%"><br><br>
             Виберіть математичну операцію: 
             <select id="opSelect" style="width:10%">
                 <option value="+">довання</option> 
@@ -16,16 +18,17 @@
                 <option value="*">множення</option>
                 <option value="/">ділення</option>
             </select><br><br>
-            <button id="readNumbers">READ</button><br>
+            <button id="readNumbers" style="width:10%">READ</button><br>
         </form>
-        <hr>
-        <form id="stage2" onsubmit="checkNumber2()" >
-            <input id="mathOperation"><br>
-            <input id="prognosRes" placeholder="введіть прогнозований результат"><br>
-            <button id="checkResult">CHECK</button><br>
-            <div id="result" placeholder="вірний результат становить"><br>
+        <br><br><br><br>
+        <form id="stage2" onsubmit="checkForm2(event); return false;">
+            <input id="mathOperation"style="width:15%"><br>
+            <input id="prognosRes" placeholder="введіть прогнозований результат" style="width:15%"><br>
+            <button id="checkResult" style="width:10%">CHECK</button><br>
+            <!-- <div id="result" placeholder="вірний результат становить"><br>
             <div id=resCongrats><br>
-            <div id="smile"></div>
+            <div id="smile"></div> -->
+            <img id="smile" class="imgnone">
         </form>
 
         <script src = "jQuery.js"></script>
