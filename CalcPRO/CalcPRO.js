@@ -1,91 +1,86 @@
-var minIn;
-var maxIn;
-var res;
+var generateMin;
+var generateMax;
+var result;
+var operation;
 var smileImg = document.createElement("img");
     smileImg.style.width = "100px";
     smileImg.style.height = "100px";
 
+$(function(){
 
-function checkForm1(event) {
-    event.preventDefault();
-    let inputMin = $("#inputMin").val();
-    let inputMax = $("#inputMax").val();
-    checkInput(inputMin);
-    checkInput(inputMax);
-    return true;
-}
+    function checkForm1(event) {
+        event.preventDefault();
+        checkInput($("#inputMin").val());
+        checkInput($("#inputMax").val());
+        return true;
+    }
 
-                        $(document).ready($("#readNumbers").on("click", function(event) {
-                            event.preventDefault();
-                            // let someMinValue = $("#someMinValue");
-                            // var someMaxValue = document.getElementById("someMaxValue");
-                            rand1 = randomNumbers(minVal,maxVal);
-                            rand2 = randomNumbers(minVal,maxVal);
-                            $("#someMinValue").html(rand1);
-                            $("#someMaxValue").html(rand2);
-                        }));
+    $("#buttonREAD").on("click", function(event) {
+        event.preventDefault();
 
+        generateMin = getRandom($("#inputMin").val(), $("#inputMax").val());
+        generateMax = getRandom($("#inputMin").val(), $("#inputMax").val());
+        operation = document.getElementById("getOperation").options[document.getElementById("getOperation").selectedIndex].value;
+
+        if ($("#inputMin").val() < $("#inputMax").val()) {
+
+            if (checkInput(generateMin)) {
+                
+                if (checkInput(generateMax)) {
+                    
+                    $("#mathOperation").html(generateMin+" "+operation+" "+generateMax+" = ?");
+                } else return;
+            } else return;
+        } else return;
+    });
+ 
+    function checkForm1(event) {
+        checkInput($("#predictedResult").val());
+        return true;
+    }
+
+    $("#buttonCHECK").on("click", function(event) {
+        event.preventDefault();
+
+        result = mathOperation(generateMin, generateMax, operation);
+        
+        if ($("#predictedResult").val() == result) {
+            $("#resultMessage").html(`Так вірно! Результат становить ${result}. Вітаємо`);
+            
+            $("#smile").removeClass("imgnone");
+            $("#smile").removeClass("sad");
+            $("#result").addClass("smile");
+            setStorage("result_true", "session");
+            setStorage("result_true", "local");
+        } else {
+            $("#resultMessage").html(`Не вірно! Результат становить ${result}. Нажаль`);
+            
+            $("#smile").removeClass("imgnone");
+            $("#smile").removeClass("smile");
+            $("#result").addClass("sad");
+            setStorage("result_wrong", "session");
+            setStorage("result_wrong", "local");
+        }
+
+        console.log("Вірних відповідей за сесію: ", sessionStorage.getItem("result_true"));
+        console.log("Невірних відповідей за сесію: ", sessionStorage.getItem("result_wrong"));
+        console.log("Вірних відповідей всього: ", localStorage.getItem("result_true"));
+        console.log("Невірних відповідей всього: ", localStorage.getItem("result_wrong"));
+    });
+});
 
 function checkInput (input) {
     if (!isNaN(input) && input>0) return true
         else return false;
 }
 
-var prognosRes = document.getElementById("prognosRes");
-prognosRes.onchange = function () {
-    if (isNaN(document.getElementById("prognosRes").value)) {
-        alert("prognosRes - не число");
-    }
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min) + +min);
 }
 
-        var readButton = document.getElementById("readNumbers");
-        readButton.onclick = function () {
-            minIn = getRandom($("#inputMin").val(), $("#inputMax").val());
-            maxIn = getRandom($("#inputMin").val(), $("#inputMax").val());
-            op = document.getElementById("opSelect").options[document.getElementById("opSelect").selectedIndex].value;
-
-            $("#mathOperation").val() = minIn + " " + op + " " + maxIn + " = ?";
-        }
-
-var checkButton = document.getElementById("checkResult");
-checkButton.onclick = function () {
-    res = operation(minIn, maxIn, op);
-    document.getElementById("result").value = res;
-    console.log(res);
-    let res_true, res_not_true;
-    
-    if (document.getElementById("prognosRes").value == res) {
-        var congrats = "ВІРНО";
-        // smileImg.setAttribute("src", "smile.jpg");
-        // smile.appendChild(smileImg);
-        $("#smile").removeClass("imgnone");
-        $("#smile").removeClass("sad");
-        $("#result").addClass("smile");
-        setStorage("res_true", "session");
-        setStorage("res_true", "local");
-    } else {
-        var congrats = "HE ВІРНО";
-        // smileImg.setAttribute("src", "sad.jpg");
-        // smile.appendChild(smileImg);
-        $("#smile").removeClass("imgnone");
-        $("#smile").removeClass("smile");
-        $("#result").addClass("sad");
-        setStorage("res_not_true", "session");
-        setStorage("res_not_true", "local");
-    }
-
-    document.getElementById("resCongrats").value = congrats;
-    console.log(congrats);
-    console.log("Вірних відповідей за сесію: ", sessionStorage.getItem("res_true"));
-    console.log("Невірних відповідей за сесію: ", sessionStorage.getItem("res_not_true"));
-    console.log("Вірних відповідей всього: ", localStorage.getItem("res_true"));
-    console.log("Невірних відповідей всього: ", localStorage.getItem("res_not_true"));
-}
-
-var op;
-function operation(x, y, op) {
+function mathOperation(x, y, operation) {
     let result = null;
-    switch (op) {
+    switch (operation) {
         case "+": {
             result = +x + +y;
             break;
@@ -103,10 +98,6 @@ function operation(x, y, op) {
         } 
     }
     return result;
-}
-
-function getRandom(min, max) {
-    return Math.floor(Math.random() * (max - min) + +min);
 }
 
 function setStorage (counter, typeStorage) {

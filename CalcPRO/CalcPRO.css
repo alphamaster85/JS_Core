@@ -23,10 +23,21 @@ body {
     margin: 0 auto;
     border-image-source: 'smile.jpg'
 }
+
 .sad {
     width: "100px";
     height: "100px";
     display: block;
     margin: 0 auto;
     border-image-source: 'sad.jpg'
+}
+
+.typeError {
+    color:red;
+    font-weight: bolder;
+}
+
+.typeOK {
+    color:green;
+    font-weight: bolder;
 }
