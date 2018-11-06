@@ -8,9 +8,9 @@
 
     <body>
         <br><br><br><br><br><br>
-        <form id="input" onsubmit="checkForm(event); return false;">
+        <form id="input1" onsubmit="checkForm(event); return false;">
             <b>NAME:</b> <input type="text" id="name" value="Anna-Maria"
-                                pattern="(^[A-Z]{1}[a-z]{1,}(-[A-Z]{1}[a-z]{1,}){1,})|(^[A-Z]{1}[a-z]{1,}$)" 
+                                pattern="(^[A-Z]{1}[a-z]{1,}(-[A-Z]{1}[a-z]{1,}){1})|(^[A-Z]{1}[a-z]{1,}$)" 
                                 title="Usage: Anna-Maria"><br>
             <b>PHONE:</b> <input type="text" id="phone" value="+380954841712" placeholder="+380ХХХХХХХХХ" 
                                 pattern="^\+380[0-9]{9}$" 
@@ -29,6 +29,10 @@
         </table>
 
         <script src = "jQuery.js"></script>
-        <script src = "DB.js"></script>        
+        <script src = "DB.js"></script>       
+        
+        
+
+
      </body>
 </html>
