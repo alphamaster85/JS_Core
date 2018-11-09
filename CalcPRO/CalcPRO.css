@@ -13,7 +13,9 @@ body {
     width: "100px";
     height: "100px";
     display: block;
+    display: none;
     margin: 0 auto;
+    border-image: none;
 }
 
 .smile {
@@ -21,7 +23,7 @@ body {
     height: "100px";
     display: block;
     margin: 0 auto;
-    border-image-source: 'smile.jpg'
+    border-image: 'smile.jpg'
 }
 
 .sad {
@@ -29,15 +31,20 @@ body {
     height: "100px";
     display: block;
     margin: 0 auto;
-    border-image-source: 'sad.jpg'
+    border-image: 'sad.jpg'
 }
 
 .typeError {
     color:red;
-    font-weight: bolder;
+    border: 2px solid red;
 }
 
 .typeOK {
     color:green;
+    font-weight: bolder;
+}
+
+.typeWrong {
+    color:red;
     font-weight: bolder;
 }

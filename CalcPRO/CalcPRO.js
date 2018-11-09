@@ -2,42 +2,63 @@ var generateMin;
 var generateMax;
 var result;
 var operation;
-var smileImg = document.createElement("img");
-    smileImg.style.width = "100px";
-    smileImg.style.height = "100px";
+
+function checkForm1(event) {
+    event.preventDefault();
+    return true;
+}
+
+function checkForm2(event) {
+    event.preventDefault();
+    return true;
+}
 
 $(function(){
-
-    function checkForm1(event) {
-        event.preventDefault();
-        checkInput($("#inputMin").val());
-        checkInput($("#inputMax").val());
-        return true;
-    }
 
     $("#buttonREAD").on("click", function(event) {
         event.preventDefault();
 
-        generateMin = getRandom($("#inputMin").val(), $("#inputMax").val());
-        generateMax = getRandom($("#inputMin").val(), $("#inputMax").val());
-        operation = document.getElementById("getOperation").options[document.getElementById("getOperation").selectedIndex].value;
+        let inputMin = $("#inputMin").val();
+        let inputMax = $("#inputMax").val();
 
-        if ($("#inputMin").val() < $("#inputMax").val()) {
+        if (checkInput(inputMin)) {
+            $("#inputMin").removeClass("typeError");
+            $("#error").attr("hidden", "");
+            $("#error").html("");
+        } else {
+            $("#inputMin").addClass("typeError");
+            $("#error").removeAttr("hidden");
+            $("#error").html("В поля повинні бути введені додатні числа");
+            return;
+        }
 
-            if (checkInput(generateMin)) {
-                
-                if (checkInput(generateMax)) {
-                    
-                    $("#mathOperation").html(generateMin+" "+operation+" "+generateMax+" = ?");
-                } else return;
-            } else return;
-        } else return;
-    });
- 
-    function checkForm1(event) {
-        checkInput($("#predictedResult").val());
-        return true;
-    }
+        if (checkInput(inputMax)) {
+            $("#inputMax").removeClass("typeError");
+            $("#error").attr("hidden", "");
+            $("#error").html("");
+        } else {
+            $("#inputMax").addClass("typeError");
+            $("#error").removeAttr("hidden");
+            $("#error").html("В поля повинні бути введені додатні числа");
+            return;
+        }
+
+        if (inputMin < inputMax) {
+            $("#error").attr("hidden", "");
+            $("#error").html("");
+
+            generateMin = getRandom(inputMin, inputMax);
+            generateMax = getRandom(inputMin, inputMax);
+            operation = document.getElementById("getOperation").options[document.getElementById("getOperation").selectedIndex].value;
+            $("#mathOperation").html(generateMin+" "+operation+" "+generateMax+" = ?");
+
+            $("#buttonCHECK").removeAttr("disabled");
+        } else {
+            $("#error").removeAttr("hidden");
+            $("#error").html("В першому полі число повинно бути меншим за число з другого");
+            return;
+        }
+    }); 
 
     $("#buttonCHECK").on("click", function(event) {
         event.preventDefault();
@@ -46,18 +67,24 @@ $(function(){
         
         if ($("#predictedResult").val() == result) {
             $("#resultMessage").html(`Так вірно! Результат становить ${result}. Вітаємо`);
+            $("#resultMessage").addClass("typeOK");
+            $("#resultMessage").removeClass("typeWrong");
             
             $("#smile").removeClass("imgnone");
-            $("#smile").removeClass("sad");
-            $("#result").addClass("smile");
+            $("#smile").attr("src", "smile.jpg");
             setStorage("result_true", "session");
             setStorage("result_true", "local");
+
+            $("#buttonCHECK").attr("disabled", "disabled");
+            $("#inputMin").val("");
+            $("#inputMax").val("");
         } else {
             $("#resultMessage").html(`Не вірно! Результат становить ${result}. Нажаль`);
+            $("#resultMessage").addClass("typeWrong");
+            $("#resultMessage").removeClass("typeOK");
             
             $("#smile").removeClass("imgnone");
-            $("#smile").removeClass("smile");
-            $("#result").addClass("sad");
+            $("#smile").attr("src", "sad.jpg");
             setStorage("result_wrong", "session");
             setStorage("result_wrong", "local");
         }

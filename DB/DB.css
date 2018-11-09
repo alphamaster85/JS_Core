@@ -6,15 +6,21 @@ body {
 
 .typeError {
     color:red;
-    font-weight: bolder;
+    border: 2px solid red;
+    visibility: visible;
 }
 
-.typeOK {
-    color:green;
+.typeVisible {
+    color:red;
     font-weight: bolder;
+    visibility: visible;
+}
+
+.typeHidden {
+    visibility: hidden;
 }
 
 .center {
     display: block;
     margin: 0 auto;
-  }
+}
